@@ -1,5 +1,5 @@
 package com.example.testit.util;
-
+//该类实现本地时间的获取
 import java.util.Date;
 import java.util.Calendar;
 import java.lang.String;
