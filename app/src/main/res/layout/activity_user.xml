@@ -32,21 +32,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.236" />
 
+
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.362" />
-
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintVertical_bias="0.004" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/att"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:text="考勤"
@@ -58,7 +59,7 @@
         app:layout_constraintVertical_bias="0.564" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/datt"
         android:layout_width="75dp"
         android:layout_height="50dp"
         android:text="退勤"
@@ -70,7 +71,7 @@
         app:layout_constraintVertical_bias="0.713" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/leave"
         android:layout_width="103dp"
         android:layout_height="48dp"
         android:text="请假"

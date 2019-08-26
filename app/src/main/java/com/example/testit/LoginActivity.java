@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.testit.util.LoginUtil;
+import com.example.testit.util.sqlConnect;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,13 +25,15 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin= this.<Button>findViewById(R.id.btn_Login);
         username= this.<EditText>findViewById(R.id.userName);
         userpassword= this.<EditText>findViewById(R.id.userPassword);
+        //final sqlConnect sc=new sqlConnect();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (loginUtil.login(username.getText().toString(),userpassword.getText().toString())){
+                String un=username.getText().toString(),pw=userpassword.getText().toString();
+                if (loginUtil.login(un,pw)) {
                     Intent intent=new Intent(LoginActivity.this,UserActivity.class);
                     startActivity(intent);
-                }else {
+                } else {
                     Toast.makeText(LoginActivity.this,"登录失败，请检查用户名与密码！",Toast.LENGTH_LONG).show();
                 }
 

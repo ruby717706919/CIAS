@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.testit.util.TimeSync;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
 public class UserActivity extends AppCompatActivity {
 
-    private TextView tv1;
-    private TextView tv2;
+    private TextView date;
+    private TextView time;
+    private Button att;
     //private DateUtil dateUtil=new DateUtil();
    // private Timer timer = new Timer();
     /*private int what=1;
@@ -24,9 +27,16 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        tv1 = this.<TextView>findViewById(R.id.date);
-        tv2 = this.<TextView>findViewById(R.id.time);
-        TimeSync timesync=new TimeSync(tv1,tv2);
+        date = this.<TextView>findViewById(R.id.date);
+        time = this.<TextView>findViewById(R.id.time);
+        TimeSync timesync=new TimeSync(date,time);
+        att = this.<Button>findViewById(R.id.att);
+        att.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         timesync.start();
 
        // timeRefresh.start();
