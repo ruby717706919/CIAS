@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.testit.util.TimeSync;
 
+import android.view.GestureDetector;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -46,6 +47,8 @@ public class UserActivity extends AppCompatActivity {
         refresh rf = new refresh();*/
         //timer.schedule(timeRefresh,0,1000);
     }
+    
+
     /*private Handler handler=new Handler(){
         public void handleMessage(Message msg){
             switch (msg.what){
