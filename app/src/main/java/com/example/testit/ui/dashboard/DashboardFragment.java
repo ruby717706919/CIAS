@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -17,6 +18,8 @@ import com.example.testit.R;
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
+    static private String p;
+    private Button btn;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +32,18 @@ public class DashboardFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        btn=root.findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(p);
+            }
+        });
         return root;
+    }
+
+    public void set(String s){
+        p=s;
+
     }
 }

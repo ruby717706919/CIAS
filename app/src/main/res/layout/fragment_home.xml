@@ -28,7 +28,7 @@
         android:layout_width="108dp"
         android:layout_height="79dp"
         android:layout_marginTop="59dp"
-        android:text="考勤"
+        android:text="打卡"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/date"
         app:layout_constraintHorizontal_bias="0.498"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/datt"
+        android:id="@+id/leave"
         android:layout_width="75dp"
         android:layout_height="50dp"
         android:text="退勤"
@@ -49,7 +49,7 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <Button
-        android:id="@+id/leave"
+        android:id="@+id/lev"
         android:layout_width="85dp"
         android:layout_height="45dp"
         android:text="请假"

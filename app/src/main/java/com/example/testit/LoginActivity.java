@@ -58,6 +58,10 @@ import android.widget.Toast;
 import java.io.*;
 import java.net.*;
 
+import com.example.testit.ui.dashboard.DashboardFragment;
+import com.example.testit.ui.home.HomeFragment;
+import com.example.testit.util.httpConnect;
+
 public class LoginActivity extends AppCompatActivity {
 
     private Button btnLogin;
@@ -67,10 +71,12 @@ public class LoginActivity extends AppCompatActivity {
     //    private MyHandler myhandler = new MyHandler(this);
     //private LoginUtil loginUtil=new LoginUtil();
     static boolean match = false;
+    private httpConnect hc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        hc=new httpConnect();
         setContentView(R.layout.activity_login);
         btnLogin = this.<Button>findViewById(R.id.btn_Login);
         username = this.<EditText>findViewById(R.id.userName);
@@ -92,6 +98,16 @@ public class LoginActivity extends AppCompatActivity {
                 if (uname.isEmpty() || psd.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "学号或密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
+                    if (hc.login(uname, psd)) {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("name",uname);
+                        DashboardFragment df=new DashboardFragment();
+                        df.set("success!!");
+                        startActivity(intent);
+                    } else
+                        Toast.makeText(LoginActivity.this, "登录失败，请检查用户名与密码！", Toast.LENGTH_LONG).show();
+                }
+                    /*
                     //开启访问数据库线程
                     t = new Thread(new Runnable() {
                         @Override
@@ -100,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                             //System.out.println(psd);
                             //Url方式连接，设置Url
                             String fPath = String.format("http://citeam.chinaeast.cloudapp.chinacloudapi.cn:8888/WebServer/login?username=%s&password=%s",uname,psd);
+                            //String fPath = String.format("http://citeam.chinaeast.cloudapp.chinacloudapi.cn:8888/WebServer/login?username=%s&symble=%s",uname,psd);
                             //System.out.println(fPath);
                             //String path = "http://citeam.chinaeast.cloudapp.chinacloudapi.cn:8888/WebServer/login?username=" + uname + "&password=" + psd;
 
@@ -141,10 +158,10 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     });
-                    t.start();
-                }
+                    t.start();*/
 
-                try {
+
+               /* try {
                     //等待线程执行完毕
                     t.join();
                 } catch (InterruptedException e) {
@@ -153,12 +170,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 //Android中判断是否跳转
                 if(match){
-                    Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else{
                     //失败
                     Toast.makeText(LoginActivity.this, "登录失败，请检查用户名与密码！", Toast.LENGTH_LONG).show();
-                }
+                }*/
             }
         });
 
